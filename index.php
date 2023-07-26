@@ -11,10 +11,24 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <h1>PHP Test</h1>
-    <p>This is HTML</p>
-    <?php
-        echo "This is PHP!";
-    ?>
+<div class="container">
+    <h1 class="title">PHP Projekte</h1>
+    <div class="content">
+        <?php
+            $projects = scandir('.');
+            if (is_dir('$projects')) {
+                $projects = scandir('projects');
+            }
+            foreach ($projects as $project) {
+                echo '<div class="card">' . $project . '</div>';
+            }
+        ?>
+        <div class="card">Erste Karte</div>
+        <div class="card">Erste Karte</div>
+        <div class="card">Erste Karte</div>
+        <div class="card">Erste Karte</div>
+        <div class="card">Erste Karte</div>
+    </div>
+</div>
 </body>
 </html>
