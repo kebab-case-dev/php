@@ -15,19 +15,13 @@
     <h1 class="title">PHP Projekte</h1>
     <div class="content">
         <?php
-            $projects = scandir('.');
-            if (is_dir('$projects')) {
-                $projects = scandir('projects');
-            }
-            foreach ($projects as $project) {
-                echo '<div class="card">' . $project . '</div>';
+            $projekte = scandir('.');
+            foreach ($projekte as $projekt) {
+                if (is_dir($projekt) && $projekt != '.' && $projekt != '..') {
+                    echo '<div class="card"><a href="' . $projekt . '">' . $projekt . '</a></div>';
+                }
             }
         ?>
-        <div class="card">Erste Karte</div>
-        <div class="card">Erste Karte</div>
-        <div class="card">Erste Karte</div>
-        <div class="card">Erste Karte</div>
-        <div class="card">Erste Karte</div>
     </div>
 </div>
 </body>
