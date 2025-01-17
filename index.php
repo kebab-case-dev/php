@@ -11,18 +11,21 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1 class="title">PHP Projekte</h1>
-        <div class="content">
-            <?php
-                $projekte = scandir('.');
-                foreach ($projekte as $projekt) {
-                    if (is_dir($projekt) && $projekt != '.' && $projekt != '..') {
-                        echo '<div class="card"><a href="' . $projekt . '">' . $projekt . '</a></div>';
-                    }
-                }
-            ?>
-        </div>
+<div class="container">
+    <h1 class="title">PHP Projekte</h1>
+    <div class="content">
+        <?php
+        $projekte = scandir('.');
+        foreach ($projekte as $projekt) {
+            if (
+                is_dir($projekt) &&
+                substr($projekt, 0, 1) != '.'
+            ) {
+                echo '<div class="card"><a href="' . htmlspecialchars($projekt) . '">' . htmlspecialchars($projekt) . '</a></div>';
+            }
+        }
+        ?>
     </div>
+</div>
 </body>
 </html>
